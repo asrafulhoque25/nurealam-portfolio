@@ -165,6 +165,82 @@ html.lenis body {
 
 
 
+/* ======================================= navbar section ======================================*/
+/* ================================
+   STICKY NAVBAR
+================================ */
+/* ── Base header ── */
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    /* কোনো background change নেই */
+}
+
+body { padding-top: 80px; }
+
+/* Logo slide out */
+#navLogo {
+    transition: opacity 0.4s, transform 0.4s;
+}
+header.scrolled #navLogo {
+    opacity: 0;
+    transform: translateX(-20px);
+    pointer-events: none;
+}
+
+/* Right tag slide out */
+#navRight {
+    transition: opacity 0.4s, transform 0.4s;
+}
+header.scrolled #navRight {
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+}
+
+/* Nav pill glass + zoom */
+#navPill {
+    transition:
+        transform 0.45s cubic-bezier(0.34, 1.3, 0.64, 1),
+        background 0.4s,
+        box-shadow 0.4s;
+    position: relative;
+}
+header.scrolled #navPill {
+    /* transform: scale(1.05); */
+    background: rgba(255, 255, 255, 0.52) !important;
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.09),
+        0 0 0 1px rgba(255, 255, 255, 0.65) inset;
+}
+
+header.scrolled #navPillWrap {
+    transform: scale(1.05);  /* ✅ এখানে */
+    transform-origin: center center;
+}
+
+/* Pill wrap — relative position for SVG ring */
+#navPillWrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.45s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+/* SVG ring */
+#navPillWrap svg.progress-ring {
+    position: absolute;
+    pointer-events: none;
+    overflow: visible;
+}
+
+
+
+
+
 /* ======================================= Marquee section ======================================*/
 
   @keyframes marquee {
@@ -584,151 +660,266 @@ html.lenis body {
 
 
 
+/* navbar style start  */
+
+
+#navPill {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 999px;
+    padding: 16px 24px 16px 16px;
+}
+
+#navPill ul {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width:1400px) {
+  #navPill ul {
+    gap: 20px;
+}
+}
+@media (max-width:991px) {
+  #navPill ul {
+    gap: 0px;
+}
+}
+
+#navPill ul li a {
+    display: block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+    text-decoration: none;
+    color: #303030;
+    line-height: 1.5;
+    text-transform: uppercase;
+    transition: background 0.3s, color 0.3s;
+}
+
+#navPill ul li a:hover,
+#navPill ul li a.active {
+    background: #000;
+    color: #fff;
+}
+
+/* CV link */
+#navPill ul li.cv-item a {
+    color: var(--color-primary);
+    background: none;
+}
+
+#navPill ul li.cv-item a:hover {
+    background: none;
+    color: #303030;
+    text-decoration: underline;
+}
+
+
+#mobileMenu {
+    opacity: 0;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #fafaf8; /* তোমার offwhite */
+    padding: 20px 16px 16px;
+    overflow: hidden;
+    z-index: 50;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#mobileMenu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mobileMenu ul li a {
+    display: block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #303030;
+    transition: color 0.2s, padding-left 0.2s;
+}
+
+#mobileMenu ul li a:hover {
+    color: var(--color-primary);
+    padding-left: 6px;
+}
+
+#mobileMenu ul li.cv-item a {
+    color: var(--color-primary);
+}
+
+#mobileMenu ul li.cv-item a:hover {
+    color: #303030;
+}
+
+@media (min-width: 768px) {
+    #mobileMenu { display: none !important; }
+}
+
+
 /* banner start  */
 
- 
-    /* ── Big background text ── */
-.bg-name {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: flex-start;   /* center → flex-start */
-  justify-content: center;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-  width: 100%;
-  font-family: 'Thunder' !important;
-
-  padding-top: -15%;           /* কতটা উপরে চাও সেটা adjust করো */
+/* ── Banner section ── */
+.banner-section{
+  min-height: 90vh;
+    display: flex;
+    align-items: end;
 }
- 
-/* Background text animation - GSAP এর বদলে pure CSS */
-.bg-name span {
-  font-size: clamp(4rem, 25vw, 48rem);
-  font-weight: 900;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  text-transform: uppercase;
-  width: 100%;
-  text-align: center;
-  display: block;
+@media (max-width:767px) {
+  .banner-section{
+  min-height: auto;
+    display: flex;
+    align-items: end;
+}
+}
+.bg-name {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    width: 100%;
+    font-family: 'Thunder', sans-serif;
+}
+@media (max-width:1100px) {
+  .bg-name {
+    top: 50%;
+  }
+}
+#bg-name-text {
+    font-size: clamp(4rem, 25vw, 48rem);
+    font-weight: 900;
+    /* letter-spacing: 0.02em; */
+    white-space: nowrap;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    display: block;
+    font-family: 'Thunder', sans-serif;
+    
+}
 
-  background: linear-gradient(
-    180deg,
-    rgba(94, 103, 230, 0.00) 0%,
-    rgba(94, 103, 230, 0.55) 40%,
-    rgba(94, 103, 230, 0.55) 60%,
-    rgba(94, 103, 230, 0.00) 100%
-  );
-  background-size: 100% 300%;          /* vertical movement এর জন্য */
-  background-position: 0% 0%;
+.bg-letter {
+    display: inline-block;
+    vertical-align: top;
+    /* CSS দিয়ে hide করা বাদ — GSAP set করবে */
+    background: linear-gradient(
+        180deg,
+        rgba(94, 103, 230, 0.00) 0%,
+        rgba(94, 103, 230, 0.60) 35%,
+        rgba(94, 103, 230, 0.60) 65%,
+        rgba(94, 103, 230, 0.00) 100%
+    );
+    background-size: 100% 400%;
+    background-position: 0% 0%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: verticalShimmer 10s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    animation-play-state: paused;
+}
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-family: 'Thunder' !important;
+.bg-letter--space {
+    width: 0.35em;
+    background: none;
+    -webkit-text-fill-color: transparent;
+}
 
-  animation: verticalShimmer 4s ease-in-out infinite;
+.content-panel,
+.image-card {
+    opacity: 0;
+    transform: translateY(30px);
 }
 
 @keyframes verticalShimmer {
-  0%   { background-position: 0% 0%; }
-  50%  { background-position: 0% 100%; }
-  100% { background-position: 0% 0%; }
+    0%   { background-position: 0% 0%;   }
+    50%  { background-position: 0% 100%; }
+    100% { background-position: 0% 0%;   }
 }
- 
-    /* ── Section wrapper ── */
-    .banner-section {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 2rem 1rem;
-      overflow: hidden;
-      width: 100%;
-    }
- 
-    /* ── Centre image card ── */
-    .image-card {
-      position: relative;
-      z-index: 10;
-    }
 
- 
-    @keyframes borderGlow {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
- 
+/* ── CTA button ── */
+.cta-btn:hover {
+    background: #9b7aff;
+    transform: translateX(4px);
+}
+.cta-btn .arrow {
+    transition: transform 0.2s;
+}
+.cta-btn:hover .arrow {
+    transform: translateX(4px);
+}
 
- 
-    /* ── Animated gradient text (heading) ── */
-    .gradient-text {
-      background: linear-gradient(90deg, #7c5cfc, #c084fc, #7c5cfc);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 3s linear infinite;
-    }
- 
-    @keyframes shimmer {
-      0%   { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
- 
-    /* ── CTA button ── */
+/* ── Desktop grid ── */
+.banner-grid {
+    display: grid;
+   grid-template-columns: minmax(300px, 540px) minmax(300px, 440px) minmax(300px, 530px);
+    gap: 20px; 
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    max-width: 1680px; 
+    margin: 0 auto;    
+    width: 100%;       
+}
 
-    .cta-btn:hover {
-      background: #9b7aff;
-      transform: translateX(4px);
-    }
-    .cta-btn .arrow {
-      transition: transform 0.2s;
-    }
-    .cta-btn:hover .arrow {
-      transform: translateX(4px);
-    }
- 
-    /* ── Left / Right content panels ── */
-
-    /* ── Desktop grid: fixed widths ── */
+@media (min-width: 1400px) {
     .banner-grid {
-      display: grid;
-      grid-template-columns: 540px 440px 530px;
-      gap: 40px;
-      align-items: center;
-      justify-content: center;
+        gap: 40px;
     }
- 
-    /* ── Responsive: mobile stacking ── */
-    @media (max-width: 1100px) {
-      .banner-grid {
+}
+
+/* ── Responsive (Mobile & Tablet) ── */
+@media (max-width: 1100px) {
+    .banner-grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem !important;
-      }
-      .image-card {
+    }
+    .image-card {
         width: min(300px, 85vw) !important;
         height: auto !important;
         margin: 0 auto;
-        /* image comes LAST on mobile */
         order: 3;
-      }
-      .image-card img {
+    }
+    .image-card img {
+        width: 100%;
         height: auto;
-      }
-      .panel-left  { order: 1; }
-      .panel-right { order: 2; }
-      .content-panel {
+    }
+    .panel-left  { order: 1; }
+    .panel-right { order: 2; }
+    .content-panel {
         width: 100%;
         text-align: center;
-      }
-      .cta-btn {
-        margin: 0 auto;
-      }
     }
+    .cta-btn {
+        margin: 0 auto;
+    }
+}
+@media (max-width: 767px) {
+   .banner-grid {
+        gap: 10px !important;
+    }
+}

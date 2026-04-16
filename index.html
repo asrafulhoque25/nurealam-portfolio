@@ -12,12 +12,16 @@
 <body>
 
     <!-- =============================================== HEADER SECTION ======================================================== -->
-    <header class="bg-offwhite ">
+    <header class="mt-4" id="siteHeader">
+    <!-- Glass background layer -->
+    <div class="header-bg"></div>
 
+    <!-- Scroll progress bar -->
+    <div class="scroll-bar" id="scrollBar"></div>
         <!-- DESKTOP header -->
         <div class="container px-6 items-center justify-between hidden md:flex">
             <!-- Left: Logo + Name -->
-            <a href="index.html">
+            <a href="index.html" id="navLogo">
                 <div class="flex items-center gap-4">
                     <img src="assets/images/profile-img.png" alt="Profile"
                         class="w-10 h-10 rounded-full object-cover" />
@@ -52,32 +56,18 @@
             </a>
 
             <!-- Center: Navigation -->
-            <nav class="flex items-center gap-12 rounded-full bg-white pt-4 pr-6 pb-4 pl-4">
-
-                <a href="#"
-                    class="px-4 py-2 rounded-full bg-black text-white leading-6 font-medium manrope transition-all duration-300 uppercase">
-                    HOME
-                </a>
-
-                <a href="#"
-                    class="px-4 py-2 rounded-full text-[16px] font-medium manrope text-black leading-6 uppercase hover:bg-black hover:text-white transition duration-300">
-                    SERVICES
-                </a>
-
-                <a href="#"
-                    class="px-4 py-2 rounded-full text-[16px] font-medium manrope text-black leading-6 uppercase hover:bg-black hover:text-white transition duration-300">
-                    CASE STUDIES
-                </a>
-
-                <a href="#"
-                    class="text-[16px] font-medium manrope text-primary hover:text-black leading-6 uppercase hover:underline transition duration-300">
-                    DOWNLOAD CV
-                </a>
-
-            </nav>
-
+<div class="pill-wrap" id="navPillWrap">
+    <nav id="navPill">
+        <ul>
+            <li><a href="#" class="active">HOME</a></li>
+            <li><a href="#">SERVICES</a></li>
+            <li><a href="#">CASE STUDIES</a></li>
+            <li class="cv-item"><a href="#">DOWNLOAD CV</a></li>
+        </ul>
+    </nav>
+</div>
             <!-- Right -->
-            <div class="hidden md:block text-right">
+            <div class="hidden md:block text-right" id="navRight">
                 <p class="manrope text-sm font-normal leading-5 text-gray">
                     8+ Years
                 </p>
@@ -139,19 +129,15 @@
 
         </div>
 
-        <!-- MOBILE MENU -->
-        <div id="mobileMenu"
-            class="md:hidden fixed top-[60px] left-0 w-full bg-offwhite px-4 pb-4 flex flex-col gap-4 overflow-hidden z-50 shadow-lg">
-
-            <!-- same mobile header content cloned below for animation -->
-            <a href="#" class="text-black uppercase hover:text-primary hover:pl-1.5">HOME</a>
-            <a href="#" class="text-black uppercase hover:text-primary hover:pl-1.5">SERVICES</a>
-            <a href="#" class="text-black uppercase hover:text-primary hover:pl-1.5">CASE
-                STUDIES</a>
-            <a href="#" class="text-primary uppercase hover:text-black">DOWNLOAD
-                CV</a>
-
-        </div>
+      <!-- MOBILE MENU -->
+<div id="mobileMenu">
+    <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">SERVICES</a></li>
+        <li><a href="#">CASE STUDIES</a></li>
+        <li class="cv-item"><a href="#">DOWNLOAD CV</a></li>
+    </ul>
+</div>
 
     </header>
     <!-- =============================================== HEADER SECTION ======================================================== -->
@@ -277,61 +263,42 @@
 
     </section> -->
 
+<section class="banner-section relative overflow-hidden">
+     <div class="absolute bottom-0 inset-x-0 h-[120px] lg:h-[180] bg-gradient-to-b from-transparent to-[#FAFAFA] z-80"></div>
 
-
-<section class="banner-section">
-
-  <!-- Background giant name text -->
-  <div class="bg-name">
-    <span id="bg-name-text">NURE ALAM</span>
-  </div>
-
-  <!-- 3-Column Grid -->
-  <div class="banner-grid w-full mx-auto px-4">
-
-    <!-- ── LEFT PANEL ── -->
-    <div class="content-panel panel-left">
-        <p
-                        class="manrope text-black text-xl md:text-[22px] lg:text-[40px] font-normal uppercase leading-8 lg:leading-12">
-                        👋 HI THERE, I'M </p>
-                    <h1
-                        class="manrope text-primary text-[40px] md:text-[96px] font-bold uppercase leading-14 lg:leading-26.5">
-                        NURE ALAM
-                    </h1>
+      <div class="bg-name">
+        <span id="bg-name-text">NURE ALAM</span>
     </div>
 
-    <!-- ── CENTRE IMAGE ── -->
-    <div class="image-card rounded-xl overflow-hidden">
-      <!--
-        Replace the src below with your actual image path.
-        e.g. src="assets/nure.png"
-      -->
-      <img src="assets/images/nure-alam.png" alt="Nure Alam"/>
+    <div class="banner-grid w-full mx-auto px-4">
+
+        <div class="content-panel panel-left pt-14 md:pt-20 xl:pt-40 xl:mt-20">
+            <p class="manrope text-black text-lg sm:text-xl md:text-[22px] lg:text-[40px] font-normal uppercase leading-8 lg:leading-12">
+                👋 HI THERE, I'M
+            </p>
+            <h1 class="manrope text-primary md:text-[40px] text-[28px] lg:text-[96px] font-bold uppercase leading-14 lg:leading-26.5">
+                NURE ALAM
+            </h1>
+        </div>
+
+        <div class="image-card rounded-xl overflow-hidden">
+            <img src="assets/images/nure-alam.png" alt="Nure Alam" />
+        </div>
+
+        <div class="content-panel panel-right xl:pt-60">
+            <p class="manrope text-black text-[18px] lg:text-[40px] font-normal leading-[26px] lg:leading-[48px] mb-6 uppercase">
+                DESIGNING FOR SCALABILITY AND MEASURABLE GROWTH
+            </p>
+            <a href="#" class="w-fit bg-primary text-white text-[14px] lg:text-[16px] px-5 lg:px-6 py-2 lg:py-3 rounded-full inline-flex items-center gap-2 transition">
+                <span>VIEW MY WORKS</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
+                    <path d="M29.5 12L4.5 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23.5 18C23.5 18 29.5 13.5811 29.5 12C29.5 10.4188 23.5 6 23.5 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+
     </div>
-
-    <!-- ── RIGHT PANEL ── -->
-    <div class="content-panel panel-right">
-      <p
-                        class="manrope text-black text-[18px] lg:text-[40px] font-normal leading-[26px] lg:leading-[48px] mb-6 uppercase">
-                        DESIGNING FOR SCALABILITY AND MEASURABLE GROWTH
-                    </p>
-
-                    <a href="#"
-                        class="w-fit bg-primary text-white text-[14px] lg:text-[16px] px-5 lg:px-6 py-2 lg:py-3 rounded-full inline-flex items-center gap-2 transition">
-
-                        <span>VIEW MY WORKS</span>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24" fill="none">
-                            <path d="M29.5 12L4.5 12" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M23.5 18C23.5 18 29.5 13.5811 29.5 12C29.5 10.4188 23.5 6 23.5 6" stroke="white"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-
-                    </a>
-    </div>
-
-  </div><!-- /grid -->
 
 </section>
 
@@ -339,7 +306,7 @@
     <!-- =============================================== HERO SECTION ======================================================== -->
 
     <!-- ==================================   LEADING ORGANIZATION SECTION =================================================== -->
-    <section class="relative overflow-hidden bg-offwhite py-10">
+    <section class="relative overflow-hidden bg-offwhite py-10 ">
         <div class="container mx-auto text-center px-4">
 
             <!-- Title -->
@@ -493,7 +460,7 @@
         <div class="container px-4">
 
             <!-- Desktop view -->
-            <div class="grid lg:grid-cols-[25%_74%] gap-7 hidden xl:grid">
+            <div class="grid lg:grid-cols-[25%_74%] gap-7 hidden lg:grid">
 
                 <!-- Left Image -->
                 <div class="p-10 bg-offwhite2 flex items-center justify-center">
@@ -591,7 +558,7 @@
 
             <div>
                 <div
-                    class="text-black text-2xl md:text-4xl manrope font-medium leading-6 md:leading-12 xl:hidden mb-6 md:max-w-225">
+                    class="text-black text-2xl md:text-4xl manrope font-medium leading-6 md:leading-12 lg:hidden mb-6 md:max-w-225">
                     <p class="scrub-text">
                         Design decisions are data-driven and focused on
                         outcomes, improving conversion rates and
@@ -599,7 +566,7 @@
                     </p>
                 </div>
             </div>
-            <div id="stats-slider" class="splide xl:hidden">
+            <div id="stats-slider" class="splide lg:hidden">
                 <div class="splide__track">
                     <ul class="splide__list">
 
@@ -2173,24 +2140,29 @@
             </div>
 
             <div class="relative text-center z-20">
-                <h2 class="manrope text-white text-[14px] md:text-[40px] font-bold leading-[22px] md:leading-12 uppercase z-20">
+                <h2
+                    class="manrope text-white text-[14px] md:text-[40px] font-bold leading-[22px] md:leading-12 uppercase z-20">
                     Partner With a UX Expert Who Focuses on Impact
                 </h2>
-                <p class="manrope text-white text-[10px] md:text-2xl font-normal leading-[18px] md:leading-8 max-w-201.75 mx-auto mt-4 mb-6">
+                <p
+                    class="manrope text-white text-[10px] md:text-2xl font-normal leading-[18px] md:leading-8 max-w-201.75 mx-auto mt-4 mb-6">
                     I deliver scalable UX solutions to create meaningful experiences.
                 </p>
 
                 <!-- button -->
                 <div class="mb-12">
-  <a href="#"
-     class="btn-shine inline-flex items-center justify-center bg-white text-primary uppercase px-6 py-4 rounded-full relative z-20 space-x-3 font-semibold overflow-hidden">
-    <span class="btn-text">Get Started</span>
-    <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" width="34" height="24" viewBox="0 0 34 24" fill="none">
-      <path d="M29.5 12L4.5 12" stroke="#5E67E6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M23.5 18C23.5 18 29.5 13.5811 29.5 12C29.5 10.4188 23.5 6 23.5 6" stroke="#5E67E6"
-            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  </a>     </div>
+                    <a href="#"
+                        class="btn-shine inline-flex items-center justify-center bg-white text-primary uppercase px-6 py-4 rounded-full relative z-20 space-x-3 font-semibold overflow-hidden">
+                        <span class="btn-text">Get Started</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" width="34" height="24"
+                            viewBox="0 0 34 24" fill="none">
+                            <path d="M29.5 12L4.5 12" stroke="#5E67E6" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M23.5 18C23.5 18 29.5 13.5811 29.5 12C29.5 10.4188 23.5 6 23.5 6" stroke="#5E67E6"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
 
 
                 <div class="relative flex justify-center z-20">
@@ -2201,14 +2173,14 @@
     </section>
     <!-- ================================================= Bottom Banner section =================================================== -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js">
-    </script>
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-    <script src="assets/js/script.js"></script>
+ <!-- এই order টা exactly এইভাবে রাখো -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<!-- textify line সরিয়ে দাও -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 
 </html>

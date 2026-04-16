@@ -84,6 +84,102 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
+// Navigation — existing code রাখো, নিচে এটা ADD করো
+// ============================================
+// STICKY NAVBAR WITH SCROLL ANIMATIONS
+// ============================================
+
+// Sticky scroll behavior
+// ── Nav pill progress border ──
+const siteHeader  = document.querySelector("header");
+const navLogo     = document.getElementById("navLogo");
+const navRight    = document.getElementById("navRight");
+const navPillWrap = document.getElementById("navPillWrap");
+const navPill     = document.getElementById("navPill");
+
+let ringPath, trackPath, totalLen, isScrolled = false;
+
+function buildProgressRing() {
+    const rect = navPill.getBoundingClientRect();
+   const w = rect.width;
+const h = rect.height;
+    const r = h / 2;
+
+    const ns = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("class", "progress-ring");
+    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    svg.style.cssText = `inset:0px;width:${w}px;height:${h}px;`
+
+    // Gradient
+    const defs = document.createElementNS(ns, "defs");
+    const grad = document.createElementNS(ns, "linearGradient");
+    grad.setAttribute("id", "navGrad");
+    grad.setAttribute("x1", "0%"); grad.setAttribute("x2", "100%");
+    ["0%:#6b5ce7", "100%:#a78bfa"].forEach(s => {
+        const [offset, color] = s.split(":");
+        const stop = document.createElementNS(ns, "stop");
+        stop.setAttribute("offset", offset);
+        stop.setAttribute("stop-color", color);
+        grad.appendChild(stop);
+    });
+    defs.appendChild(grad);
+    svg.appendChild(defs);
+
+    // Track (faint background ring)
+    trackPath = document.createElementNS(ns, "rect");
+    Object.entries({ x:1, y:1, width:w-2, height:h-2, rx:r-1, ry:r-1,
+        fill:"none", stroke:"rgba(107,92,231,0.12)", "stroke-width":"1.5" })
+        .forEach(([k,v]) => trackPath.setAttribute(k, v));
+    trackPath.style.cssText = "opacity:0;transition:opacity 0.4s;";
+    svg.appendChild(trackPath);
+
+    // Progress stroke
+    ringPath = document.createElementNS(ns, "rect");
+    Object.entries({ x:1, y:1, width:w-2, height:h-2, rx:r-1, ry:r-1,
+        fill:"none", stroke:"url(#navGrad)", "stroke-width":"2", "stroke-linecap":"round" })
+        .forEach(([k,v]) => ringPath.setAttribute(k, v));
+
+    totalLen = 2 * ((w-2) + (h-2) - 4*(r-1)) + 2 * Math.PI * (r-1);
+    ringPath.style.cssText = `
+        stroke-dasharray:${totalLen};
+        stroke-dashoffset:${totalLen};
+        opacity:0;
+        transition:stroke-dashoffset 0.12s linear, opacity 0.4s;
+    `;
+    svg.appendChild(ringPath);
+    navPillWrap.appendChild(svg);
+}
+
+// Build after DOM ready
+window.addEventListener("DOMContentLoaded", () => {
+    buildProgressRing();
+
+    window.addEventListener("scroll", () => {
+        const st  = window.scrollY;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = Math.min(st / max, 1);
+        const scrolled = st > 50;
+
+        if (scrolled !== isScrolled) {
+            isScrolled = scrolled;
+            siteHeader.classList.toggle("scrolled", scrolled);
+            navLogo.classList.toggle("scrolled", scrolled);   // CSS দিয়ে hide
+            navRight.classList.toggle("scrolled", scrolled);  // CSS দিয়ে hide
+            ringPath.style.opacity   = scrolled ? "1" : "0";
+            trackPath.style.opacity  = scrolled ? "1" : "0";
+        }
+
+        if (scrolled) {
+            ringPath.style.strokeDashoffset = totalLen * (1 - pct);
+        }
+    });
+});
+
+
+
+
+
 // ──======================================= Smooth scroll (Lenis)======================================== ──
 if (typeof Lenis !== 'undefined') {
   const lenis = new Lenis({
@@ -278,28 +374,88 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // gsap.to('#bg-name-text', {
-  //   backgroundPosition: '300% center',
-  //   duration: 6,
-  //   ease: 'none',
-  //   repeat: -1,
-  //   yoyo: false,
-  // });
 
-  // /* ── GSAP: entrance animations ── */
-  // gsap.from('.content-panel', {
-  //   opacity: 0,
-  //   y: 40,
-  //   duration: 0.9,
-  //   stagger: 0.2,
-  //   ease: 'power3.out',
-  //   delay: 0.2,
-  // });
 
-  // gsap.from('.image-card', {
-  //   opacity: 0,
-  //   scale: 0.9,
-  //   duration: 1,
-  //   ease: 'power3.out',
-  //   delay: 0.1,
-  // });
+
+// banner animation — সব কিছু DOMContentLoaded এ wrap করো
+window.addEventListener("DOMContentLoaded", () => {
+
+    const bgTextEl = document.getElementById('bg-name-text');
+    if (!bgTextEl) return;
+
+    bgTextEl.textContent = 'NURE ALAM';
+
+    const letters = 'NURE ALAM'.split('');
+    bgTextEl.innerHTML = letters
+        .map(char =>
+            char === ' '
+                ? `<span class="bg-letter bg-letter--space">&nbsp;</span>`
+                : `<span class="bg-letter">${char}</span>`
+        )
+        .join('');
+
+    // CSS এ hide নেই তাই GSAP set দিয়ে hide করো
+    gsap.set('.bg-letter:not(.bg-letter--space)', { 
+        yPercent: 110, 
+        opacity: 0 
+    });
+
+    const bannerTl = gsap.timeline({
+        defaults: { ease: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+    });
+
+    bannerTl.to('.bg-letter:not(.bg-letter--space)', {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: { each: 0.06, ease: 'power2.out' }
+    });
+
+    bannerTl.call(() => {
+        document.querySelectorAll('.bg-letter').forEach(el => {
+            el.style.animationPlayState = 'running';
+        });
+    });
+
+    bannerTl.to('.content-panel', {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.15
+    }, '+=0.1');
+
+    bannerTl.to('.image-card', {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.7
+    }, '<0.2');
+
+
+
+
+
+
+    // Banner scroll animation — DOMContentLoaded এর ভেতরে, bannerTl এর পরে add করো
+
+ScrollTrigger.create({
+    trigger: '.banner-section',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: true,
+    onUpdate: (self) => {
+        const progress = self.progress;
+        const letters = document.querySelectorAll('.bg-letter:not(.bg-letter--space)');
+
+        letters.forEach((el, i) => {
+            const delay = i * 0.04;
+            const localProgress = Math.max(0, Math.min(1, (progress - delay) / (1 - delay)));
+
+            gsap.set(el, {
+                yPercent: -(localProgress * 120),
+                opacity: 1 - localProgress,
+            });
+        });
+    }
+});
+
+});
