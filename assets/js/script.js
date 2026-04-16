@@ -84,12 +84,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Navigation — existing code রাখো, নিচে এটা ADD করো
-// ============================================
-// STICKY NAVBAR WITH SCROLL ANIMATIONS
-// ============================================
 
-// Sticky scroll behavior
+// Sticky scroll 
 // ── Nav pill progress border ──
 const siteHeader  = document.querySelector("header");
 const navLogo     = document.getElementById("navLogo");
@@ -101,8 +97,10 @@ let ringPath, trackPath, totalLen, isScrolled = false;
 
 function buildProgressRing() {
     const rect = navPill.getBoundingClientRect();
-   const w = rect.width;
-const h = rect.height;
+    const w = rect.width;
+    const h = rect.height;
+
+    if (w === 0 || h === 0) return;
     const r = h / 2;
 
     const ns = "http://www.w3.org/2000/svg";
@@ -153,27 +151,36 @@ const h = rect.height;
 
 // Build after DOM ready
 window.addEventListener("DOMContentLoaded", () => {
-    buildProgressRing();
+     requestAnimationFrame(() => {
+        buildProgressRing();
 
-    window.addEventListener("scroll", () => {
-        const st  = window.scrollY;
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        const pct = Math.min(st / max, 1);
-        const scrolled = st > 50;
-
-        if (scrolled !== isScrolled) {
-            isScrolled = scrolled;
-            siteHeader.classList.toggle("scrolled", scrolled);
-            navLogo.classList.toggle("scrolled", scrolled);   // CSS দিয়ে hide
-            navRight.classList.toggle("scrolled", scrolled);  // CSS দিয়ে hide
-            ringPath.style.opacity   = scrolled ? "1" : "0";
-            trackPath.style.opacity  = scrolled ? "1" : "0";
-        }
-
-        if (scrolled) {
-            ringPath.style.strokeDashoffset = totalLen * (1 - pct);
-        }
+          setTimeout(() => {
+        buildProgressRing();
+    }, 100);
     });
+
+  window.addEventListener("scroll", () => {
+    if (!ringPath || !trackPath) return;
+
+    const st  = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.min(st / max, 1);
+    const scrolled = st > 50;
+
+    if (scrolled !== isScrolled) {
+        isScrolled = scrolled;
+        siteHeader.classList.toggle("scrolled", scrolled);
+        navLogo.classList.toggle("scrolled", scrolled);
+        navRight.classList.toggle("scrolled", scrolled);
+        ringPath.style.opacity  = scrolled ? "1" : "0";
+        trackPath.style.opacity = scrolled ? "1" : "0";
+    }
+
+    if (scrolled) {
+        ringPath.style.strokeDashoffset = totalLen * (1 - pct);
+    }
+});
+
 });
 
 
@@ -377,7 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// banner animation — সব কিছু DOMContentLoaded এ wrap করো
+// banner animation 
 window.addEventListener("DOMContentLoaded", () => {
 
     const bgTextEl = document.getElementById('bg-name-text');
@@ -435,7 +442,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // Banner scroll animation — DOMContentLoaded এর ভেতরে, bannerTl এর পরে add করো
+    // Banner scroll animation — 
 
 ScrollTrigger.create({
     trigger: '.banner-section',
