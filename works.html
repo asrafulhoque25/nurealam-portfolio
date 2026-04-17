@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nure Alam</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-offwhite">
+    <!-- =============================================== HEADER SECTION ======================================================== -->
+
+    <header class=" relative ">
+
+        <!-- DESKTOP header -->
+        <div class="container px-6 items-center justify-between hidden md:flex pt-7.5 ">
+            <!-- Left: Logo + Name -->
+            <a href="index.html">
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/profile-img.png" alt="Profile"
+                        class="w-10 h-10 rounded-full object-cover" />
+
+                    <!-- Name SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="79" height="18" viewBox="0 0 79 18" fill="none">
+                        <path
+                            d="M0 17.1875V0H2.05078L5.69336 10.3125L5.50781 5.625V0H7.86133V17.1875H6.00586L2.26562 6.51367L2.41211 11.0254V17.1875H0Z"
+                            fill="#303030" />
+                        <path
+                            d="M14.1211 17.3828C13.2292 17.3828 12.5033 17.2168 11.9434 16.8848C11.3835 16.5462 10.9733 16.0384 10.7129 15.3613C10.4525 14.6777 10.3223 13.8151 10.3223 12.7734V0H12.9395V12.7246C12.9395 13.2064 12.959 13.6296 12.998 13.9941C13.0436 14.3587 13.1478 14.6419 13.3105 14.8438C13.4733 15.0456 13.7402 15.1465 14.1113 15.1465C14.4824 15.1465 14.7493 15.0488 14.9121 14.8535C15.0814 14.6517 15.1855 14.3685 15.2246 14.0039C15.2637 13.6393 15.2832 13.2129 15.2832 12.7246V0H17.9004V12.7734C17.9004 13.8151 17.7702 14.6777 17.5098 15.3613C17.2559 16.0384 16.849 16.5462 16.2891 16.8848C15.7357 17.2168 15.013 17.3828 14.1211 17.3828Z"
+                            fill="#303030" />
+                        <path
+                            d="M20.3516 17.1875V0H24.6777C25.5762 0 26.2467 0.175781 26.6895 0.527344C27.1322 0.878906 27.4219 1.39323 27.5586 2.07031C27.7018 2.7474 27.7734 3.57422 27.7734 4.55078C27.7734 5.5599 27.6693 6.35417 27.4609 6.93359C27.2591 7.50651 26.8424 7.89062 26.2109 8.08594C26.5104 8.13802 26.7611 8.26172 26.9629 8.45703C27.1647 8.64583 27.3275 8.92578 27.4512 9.29688C27.5749 9.66146 27.6628 10.1335 27.7148 10.7129C27.7734 11.2858 27.8027 11.9889 27.8027 12.8223C27.8027 12.8874 27.8027 13.0697 27.8027 13.3691C27.8027 13.6686 27.8027 14.0234 27.8027 14.4336C27.8092 14.8372 27.8158 15.2409 27.8223 15.6445C27.8288 16.0482 27.8385 16.3932 27.8516 16.6797C27.8646 16.9661 27.8809 17.1354 27.9004 17.1875H25.2832C25.2637 17.1549 25.2474 16.9889 25.2344 16.6895C25.2279 16.3835 25.2181 15.9961 25.2051 15.5273C25.1986 15.0586 25.1921 14.554 25.1855 14.0137C25.1855 13.4733 25.1855 12.9427 25.1855 12.4219C25.1855 11.8945 25.1855 11.429 25.1855 11.0254C25.1855 10.5111 25.1465 10.1237 25.0684 9.86328C24.9967 9.59635 24.86 9.41081 24.6582 9.30664C24.4629 9.20247 24.1797 9.14062 23.8086 9.12109L22.9688 9.07227V17.1875H20.3516ZM22.9785 7.04102H24.0234C24.3424 7.04102 24.5833 6.9694 24.7461 6.82617C24.9154 6.68294 25.0293 6.41927 25.0879 6.03516C25.153 5.65104 25.1855 5.09766 25.1855 4.375V4.26758C25.1855 3.66211 25.1562 3.19661 25.0977 2.87109C25.0391 2.54557 24.9154 2.32096 24.7266 2.19727C24.5443 2.07357 24.2578 2.01172 23.8672 2.01172H22.9785V7.04102Z"
+                            fill="#303030" />
+                        <path
+                            d="M30.0391 17.1875V0H35.8008V2.25586H32.6562V7.25586H35.6445V9.46289H32.6562V14.9316H35.918V17.1875H30.0391Z"
+                            fill="#303030" />
+                        <path
+                            d="M40.4297 17.1875L42.8809 0H46.3379L48.9453 17.1875H46.5039L46.0938 14.1211H43.3203L42.9492 17.1875H40.4297ZM43.5742 12.0215H45.8203L44.668 3.38867H44.6289L43.5742 12.0215Z"
+                            fill="#303030" />
+                        <path d="M50.5078 17.1875V0H53.125V14.9609H56.4355V17.1875H50.5078Z" fill="#303030" />
+                        <path
+                            d="M56.8359 17.1875L59.2871 0H62.7441L65.3516 17.1875H62.9102L62.5 14.1211H59.7266L59.3555 17.1875H56.8359ZM59.9805 12.0215H62.2266L61.0742 3.38867H61.0352L59.9805 12.0215Z"
+                            fill="#303030" />
+                        <path
+                            d="M66.9141 17.1875V0H70.166L72.6074 12.5586L74.9023 0H78.1738V17.1875H75.8398V10.7812L75.9375 4.90234L73.623 17.1094H71.543L69.1309 4.90234L69.2285 10.7812V17.1875H66.9141Z"
+                            fill="#303030" />
+                    </svg>
+
+                </div>
+            </a>
+
+            <!-- Center: Navigation -->
+            <nav class="flex items-center gap-12 rounded-full bg-white pt-4 pr-6 pb-4 pl-4 z-20">
+
+                <a href="index.html"
+                    class="px-4 py-2 rounded-full bg-black text-white leading-6 font-medium manrope transition-all duration-300 uppercase">
+                    HOME
+                </a>
+
+                <a href="works.html"
+                    class="px-4 py-2 rounded-full text-[16px] font-medium manrope text-black leading-6 uppercase hover:bg-black hover:text-white transition duration-300">
+                    SERVICES
+                </a>
+
+                <a href="case-study.html"
+                    class="px-4 py-2 rounded-full text-[16px] font-medium manrope text-black leading-6 uppercase hover:bg-black hover:text-white transition duration-300">
+                    CASE STUDIES
+                </a>
+
+                <a href="#"
+                    class="text-[16px] font-medium manrope text-primary hover:text-black leading-6 uppercase hover:underline transition duration-300">
+                    DOWNLOAD CV
+                </a>
+
+            </nav>
+
+            <!-- Right -->
+            <div class="hidden md:block text-right z-20">
+                <p class="manrope text-sm font-normal leading-5 text-gray">
+                    8+ Years
+                </p>
+
+                <p class="text-sm font-semibold leading-5.5 text-black">
+                    UX Designer
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Mobile View Header -->
+        <div id="mobileHeader" class="flex items-center justify-between md:hidden py-4 px-4">
+
+            <!-- Left -->
+            <div class="flex items-center gap-3">
+
+                <!-- Hamburger -->
+                <button id="menuBtn" class="flex items-center justify-center relative w-6 h-6">
+
+                    <!-- Hamburger icon -->
+                    <svg id="iconHamburger" class="absolute inset-0" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none">
+
+                        <path
+                            d="M3 5C3 4.44772 3.44772 4 4 4H16C16.5523 4 17 4.44772 17 5C17 5.55229 16.5523 6 16 6H4C3.44772 6 3 5.55228 3 5Z"
+                            fill="#303030" />
+                        <path opacity="0.4"
+                            d="M3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12Z"
+                            fill="#303030" />
+                        <path
+                            d="M3 19C3 18.4477 3.44772 18 4 18H12C12.5523 18 13 18.4477 13 19C13 19.5523 12.5523 20 12 20H4C3.44772 20 3 19.5523 3 19Z"
+                            fill="#303030" />
+                    </svg>
+
+                    <!-- Close -->
+                    <svg id="iconClose" class="absolute inset-0" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none">
+
+                        <path d="M6 6L18 18" stroke="#303030" stroke-width="2" />
+                        <path d="M18 6L6 18" stroke="#303030" stroke-width="2" />
+                    </svg>
+
+                </button>
+
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <p class="text-black manrope text-xl font-bold leading-7 uppercase">
+                        Nure Alam
+                    </p>
+                </a>
+
+            </div>
+
+            <!-- Right -->
+            <a href="#" class="text-primary font-medium uppercase text-[16px] hover:underline transition">
+                DOWNLOAD CV
+            </a>
+
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu"
+            class="md:hidden fixed top-15 left-0 w-full bg-offwhite px-4 pb-4 flex flex-col gap-4 overflow-hidden z-50 shadow-lg">
+
+            <!-- same mobile header content cloned below for animation -->
+            <a href="index.html" class="text-black uppercase hover:text-primary hover:pl-1.5">HOME</a>
+            <a href="works.html" class="text-black uppercase hover:text-primary hover:pl-1.5">SERVICES</a>
+            <a href="case-study.html" class="text-black uppercase hover:text-primary hover:pl-1.5">CASE
+                STUDIES</a>
+            <a href="#" class="text-primary uppercase hover:text-black">DOWNLOAD
+                CV</a>
+
+        </div>
+
+          <!-- header top right svg -->
+         <div class=" hidden md:block absolute top-0 right-0 max-w-[60%] opacity-50 pointer-events-none z-10">
+            <img src="assets/images/workpageillustrate1.svg" alt="workpageillustrate1" >
+         </div>
+
+    </header>
+
+    <!-- =============================================== HEADER SECTION ======================================================== -->
+
+    <!-- ================================================= Featured case study section =================================================== -->
+    <section class=" py-8 lg:py-16 ">
+
+        <div class="container">
+
+
+            <!-- Section heading  -->
+            <div class="section-heading md:text-center ">
+                <h3
+                    class="manrope text-primary text-[12px] md:text-2xl leading-4 md:leading-8 font-medium uppercase mb-5 z-30 relative">
+                    MY WORKS
+                </h3>
+                <p
+                    class=" scrub-text manrope text-[16px] md:text-[40px] leading-6 md:leading-14 font-normal text-black max-w-6xl mx-auto mb-12.5 z-30 relative">
+                    A curated collection of UX projects focused on solving real user problems, improving product
+                    performance.
+                </p>
+
+            </div>
+            <!-- Tabs Container -->
+            <div class="flex justify-center w-full px-4 pt-2 pb-8 md:pt-4 md:pb-20 z-30 relative">
+                <div class="tabs-wrapper flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+
+                    <button
+                        class="tab text-black manrope text-[14px] font-medium leading-5.5 px-3 py-1.5 bg-white uppercase rounded-full"
+                        data-filter="all">
+                        All My Works
+                    </button>
+
+                    <button
+                        class="tab text-black manrope text-[14px] font-medium leading-5.5 px-3 py-1.5 bg-white uppercase rounded-full"
+                        data-filter="dashboard">
+                        Dashboard
+                    </button>
+
+                    <button
+                        class="tab text-black manrope text-[14px] font-medium leading-5.5 px-3 py-1.5 bg-white uppercase rounded-full"
+                        data-filter="saas">
+                        SAAS
+                    </button>
+
+                    <button
+                        class="tab text-black manrope text-[14px] font-medium leading-5.5 px-3 py-1.5 bg-white uppercase rounded-full"
+                        data-filter="mobile">
+                        MOBILE APPS
+                    </button>
+
+                    <button
+                        class="tab text-black manrope text-[14px] font-medium leading-5.5 px-3 py-1.5 bg-white uppercase rounded-full"
+                        data-filter="web">
+                        WEB APPS
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- featured case studied area -->
+            <div class="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6 z-30 relative">
+
+                <!-- LEFT (40%) -->
+                <div class="order-2 md:order-1 flex flex-col gap-6">
+
+                    <!-- Card 1 -->
+                    <div class="featured-card" data-category="sass">
+                        <a href="#">
+                            <!-- IMAGE -->
+                            <div class="w-full h-60 md:h-100 overflow-hidden">
+                                <img src="assets/images/featured1.webp" class="w-full h-full object-cover"
+                                    alt="featured1">
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div class="mt-3">
+                                <h2
+                                    class="text-black manrope text-[16px] md:text-[40px] font-semibold leading-6 md:leading-12 mb-4">
+                                    THC - Digital Agency Website
+                                </h2>
+                                <p
+                                    class="text-gray manrope text-[12px] md:text-xl font-normal leading-3.75 md:leading-7 max-w-140">
+                                    Highly Charged is a next-gen agency
+                                    delivering innovative products. We
+                                    blend
+                                    technology
+                                    and creativity to build powerful
+                                    digital experiences that help brands
+                                    grow.
+                                </p>
+                            </div>
+                        </a>
+
+                    </div>
+                    <!-- Card 1 -->
+                    <div class="featured-card" data-category="mobile">
+                        <a href="#">
+                            <!-- IMAGE -->
+                            <div class="w-full h-60 md:h-100 overflow-hidden">
+                                <img src="assets/images/featured2.webp" class="w-full h-full object-cover"
+                                    alt="featured1">
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div class="mt-3">
+                                <h2
+                                    class="text-black manrope text-[16px] md:text-[40px] font-semibold leading-6 md:leading-12 mb-4">
+                                    THC - Digital Agency Website
+                                </h2>
+                                <p
+                                    class="text-gray manrope text-[12px] md:text-xl font-normal leading-3.75 md:leading-7 max-w-140">
+                                    Highly Charged is a next-gen agency
+                                    delivering innovative products. We
+                                    blend
+                                    technology
+                                    and creativity to build powerful
+                                    digital experiences that help brands
+                                    grow.
+                                </p>
+                            </div>
+                        </a>
+
+                    </div>
+                    <!-- Card 1 -->
+                    <div class="featured-card" data-category="dashboard">
+                        <!-- IMAGE -->
+                        <div class="w-full h-60 md:h-100 overflow-hidden">
+                            <img src="assets/images/featured6.webp" class="w-full h-full object-cover" alt="featured1">
+                        </div>
+                        <!-- BUTTON -->
+                        <div class="flex items-center gap-1.5 mt-5 group cursor-pointer">
+                            <a href="#"
+                                class="uppercase manrope text-[14px] md:text-2xl font-medium leading-4.5 md:leading-8 text-primary transition-all duration-300 group-hover:translate-x-1">
+                                VIEW ALL CASE STUDIES
+                            </a>
+
+                            <span class="transition-transform duration-300 group-hover:translate-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 34 24"
+                                    fill="none">
+                                    <path d="M29.5 12L4.5 12" stroke="#5E67E6" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M23.5 18C23.5 18 29.5 13.5811 29.5 12C29.5 10.4188 23.5 6 23.5 6"
+                                        stroke="#5E67E6" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT (60%) -->
+                <div class=" order-1 md:order-2 flex flex-col gap-6">
+
+                    <!-- Card -->
+                    <div class="featured-card" data-category="web">
+                        <a href="#">
+                            <!-- IMAGE -->
+                            <div class="w-full h-60 md:h-150 overflow-hidden">
+                                <img src="assets/images/featured4.webp" class="w-full h-full object-cover"
+                                    alt="featured4">
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div class="mt-3">
+                                <h2
+                                    class="text-black manrope text-[16px] md:text-[40px] font-semibold leading-6 md:leading-12 mb-4">
+                                    Propert Eye - Real Estate Case Study
+                                </h2>
+                                <p
+                                    class="text-gray manrope text-[12px] md:text-xl font-normal leading-3.75 md:leading-7 max-w-140">
+                                    Propert Eye is a real estate mobile
+                                    app that helps users easily find
+                                    their dream
+                                    home for rent, purchase, or sell all
+                                    in one place.
+                                </p>
+                            </div>
+                        </a>
+
+                    </div>
+                    <!-- Card -->
+                    <div class="featured-card" data-category="saas">
+                        <a href="#">
+                            <!-- IMAGE -->
+                            <div class="w-fullh-60 md:h-150 overflow-hidden">
+                                <img src="assets/images/featured3.webp" class="w-full h-full object-cover"
+                                    alt="featured4">
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div class="mt-3">
+                                <h2
+                                    class="text-black manrope text-[16px] md:text-[40px] font-semibold leading-6 md:leading-12 mb-4">
+                                    Propert Eye - Real Estate Case Study
+                                </h2>
+                                <p
+                                    class="text-gray manrope text-[12px] md:text-xl font-normal leading-3.75 md:leading-7 max-w-140">
+                                    Propert Eye is a real estate mobile
+                                    app that helps users easily find
+                                    their dream
+                                    home for rent, purchase, or sell all
+                                    in one place.
+                                </p>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- sticky button -->
+            <div id="viewProjectBtn" class="fixed top-0 left-0 pointer-events-none z-50 
+            px-5 py-2 rounded-full text-sm text-white
+            opacity-0">
+                View Project
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================= Featured case study section =================================================== -->
+
+    <!-- ================================================= Bottom Banner section =================================================== -->
+    <section class=" py-8 lg:py-16 px-4">
+        <div class="container relative  bg-[#1B25AA] rounded-2xl overflow-hidden pt-20 "
+            style="box-shadow: 0 10px 30px rgba(80, 109, 255, 0.4);">
+            <!-- shadow svg 1 -->
+            <div class="absolute left-0 bottom-0 ">
+                <img src="assets/images/shadow1.svg" alt="shadow" class="opacity-70 ">
+            </div>
+            <!-- shadow svg 2 -->
+            <div class="absolute right-0 bottom-0 n">
+                <img src="assets/images/shadow2.svg" alt="shadow" class="opacity-70 ">
+            </div>
+
+            <div class="relative text-center z-20">
+                <h2
+                    class="manrope text-white text-[14px] md:text-[40px] font-bold leading-5.5 md:leading-12 uppercase z-20">
+                    Partner With a UX Expert Who Focuses on Impact
+                </h2>
+                <p
+                    class="manrope text-white text-[10px] md:text-2xl font-normal leading-4.5 md:leading-8 max-w-201.75 mx-auto mt-4 mb-6">
+                    I deliver scalable UX solutions to create meaningful experiences.
+                </p>
+
+                <!-- button -->
+                <div class="mb-12">
+                    <a href="#"
+                        class="btn-shine inline-flex items-center justify-center bg-white text-primary uppercase px-6 py-4 rounded-full relative z-20 space-x-3 font-semibold overflow-hidden">
+                        <span class="btn-text">Get Started</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" width="34" height="24"
+                            viewBox="0 0 34 24" fill="none">
+                            <path d="M29.5 12L4.5 12" stroke="#5E67E6" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M23.5 18C23.5 18 29.5 13.5811 29.5 12C29.5 10.4188 23.5 6 23.5 6" stroke="#5E67E6"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a> </div>
+
+
+                <div class="relative flex justify-center z-20">
+                    <img src="assets/images/banner.png" alt="">
+                </div>
+            </div>
+
+    </section>
+    <!-- ================================================= Bottom Banner section =================================================== -->
+
+
+    <!-- ================================================= Footer section =================================================== -->
+    <footer>
+        <div class="footer-wrapper relative  bg-[#0E0F31] overflow-hidden">
+            <!-- shadow 3 -->
+            <div class="absolute left-0 bottom-0 opacity-70">
+                <img src="assets/images/shadow3.svg" alt="shadow">
+            </div>
+            <!-- shadow 4 -->
+            <div class="absolute right-0 top-0 opacity-70">
+                <img src="assets/images/shadow4.svg" alt="shadow">
+            </div>
+            <div class="container relative z-16">
+                <div class="grid grid-cols-12 ">
+
+                    <!-- Left Side -->
+                    <div class="order-2 lg:order-1 col-span-12 lg:col-span-6 pt-7.5 text-center lg:text-start">
+                        <a href="works.html"
+                            class="text-white manrope uppercase font-extrabold tracking-tighter text-[40px] lg:text-[90px]">
+                            Nure Alam
+                        </a>
+                        <p class="manrope text-2xl lg:text-[32px] font-normal leading-10 text-white/70 ">Re-defining
+                            your Future</p>
+
+                        <div class="max-w-100 max-h-150 mx-auto lg:mx-0 relative">
+                            <img src="assets/images/foooter-img.png" alt="footer-img"
+                                class="w-full h-full object-contain">
+                        </div>
+
+                        <!-- mobile view copyright -->
+                        <div class="absolute bottom-2 right-2  lg:hidden">
+                            <p class="manrope text-lg font-normal leading-7 text-white uppercase">&copy; 2026 Nure Alam
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Side (Aligned to Far Right) -->
+                    <div class="order-1 lg:order-2 col-span-12 lg:col-span-6 pt-20">
+                        <div class="footer-right-content grid grid-cols-2 gap-10 lg:flex lg:justify-between">
+
+                            <div class="footer-nav-col col-span-1">
+                                <h3
+                                    class="manrope text-2xl font-normal leading-8 text-white/50 uppercase border-b border-white/50 w-fit">
+                                    QUICK LINKS
+                                </h3>
+                                <ul class="">
+                                    <li class="border-b border-white/50 py-2 ">
+                                        <a href="#"
+                                            class="inline-block manrope text-xl font-normal leading-8 text-white uppercase hover:text-primary transition-transform duration-300 hover:translate-x-1.5">Home</a>
+                                    </li>
+                                    <li class="border-b border-white/50 py-2">
+                                        <a href="#"
+                                            class="inline-block manrope text-xl font-normal leading-8 text-white uppercase hover:text-primary transition-transform duration-300 hover:translate-x-1.5">Case
+                                            Studies</a>
+                                    </li>
+                                    <li class="border-b border-white/50 py-2">
+                                        <a href="#"
+                                            class="inline-block manrope text-xl font-normal leading-8 text-white uppercase hover:text-primary transition-transform duration-300 hover:translate-x-1.5">Download
+                                            Cv</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="footer-nav-col col-span-1">
+                                <h3
+                                    class="manrope text-2xl font-normal leading-8 text-white/50 uppercase border-b border-white/50 w-fit">
+                                    SOCIALS
+                                </h3>
+                                <ul>
+                                    <li class="border-b border-white/50 py-2">
+                                        <a href="#"
+                                            class="inline-block manrope text-xl font-normal leading-8 text-white uppercase hover:text-primary transition-transform duration-300 hover:translate-x-1.5">Instagram</a>
+                                    </li>
+                                    <li class="border-b border-white/50 py-2">
+                                        <a href="#"
+                                            class="inline-block manrope text-xl font-normal leading-8 text-white uppercase hover:text-primary transition-transform duration-300 hover:translate-x-1.5">X(TWITTER)</a>
+                                    </li>
+                                    <li class="border-b border-white/50 py-2">
+                                        <a href="#"
+                                            class="inline-block manrope text-xl font-normal leading-8 text-white uppercase hover:text-primary transition-transform duration-300 hover:translate-x-1.5">LinkedIn</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="footer-nav-col col-span-2 lg:col-auto">
+                                <h3
+                                    class="manrope text-2xl font-normal leading-8 text-white/50 uppercase border-b border-white/50 w-fit">
+                                    CONTACTS
+                                </h3>
+                                <ul>
+                                    <li class="border-b border-white/50 py-2 flex gap-2">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M4 3V5.07692C4 7.07786 4 8.07833 4.14533 8.91545C4.94529 13.5235 8.90656 17.1376 13.9574 17.8674C14.8749 18 16.8068 18 19 18"
+                                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M17 21C17.6068 20.4102 20 18.8403 20 18C20 17.1597 17.6068 15.5898 17 15"
+                                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <a href="mailto:contact@nurealam.com"
+                                            class="inline-block manrope text-xl font-normal leading-8 text-white uppercase hover:text-primary transition-transform duration-300 hover:translate-x-1.5">contact@nurealam.com</a>
+                                    </li>
+                                    <li class="py-2 max-w-90 flex gap-2">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M13.6177 21.367C13.1841 21.773 12.6044 22 12.0011 22C11.3978 22 10.8182 21.773 10.3845 21.367C6.41302 17.626 1.09076 13.4469 3.68627 7.37966C5.08963 4.09916 8.45834 2 12.0011 2C15.5439 2 18.9126 4.09916 20.316 7.37966C22.9082 13.4393 17.599 17.6389 13.6177 21.367Z"
+                                                    stroke="white" stroke-width="1.5" />
+                                                <path
+                                                    d="M15.5 11C15.5 12.933 13.933 14.5 12 14.5C10.067 14.5 8.5 12.933 8.5 11C8.5 9.067 10.067 7.5 12 7.5C13.933 7.5 15.5 9.067 15.5 11Z"
+                                                    stroke="white" stroke-width="1.5" />
+                                            </svg>
+                                        </span>
+                                        <a href="#"
+                                            class="manrope text-xl font-normal leading-8 text-white hover:text-primary transition-all duration-300">
+                                            4517 Washington Ave. Manchester, Kentucky 39495
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="lg:flex justify-end hidden  lg:pt-69">
+                            <p class="manrope text-xl font-normal leading-7 text-white uppercase">&copy; 2026 Nure Alam
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================================================= Footer section =================================================== -->
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js">
+    </script>
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
