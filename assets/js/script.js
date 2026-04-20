@@ -278,27 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // service section
 
-const rows = document.querySelectorAll(".service-row");
 
-rows.forEach((row) => {
-  row.addEventListener("click", () => {
-
-    // Only mobile
-    if (window.innerWidth < 768) {
-
-      const isActive = row.classList.contains("active");
-
-      // close all
-      rows.forEach(r => r.classList.remove("active"));
-
-      // open current
-      if (!isActive) {
-        row.classList.add("active");
-      }
-    }
-
-  });
-});
 
 
 // projects view sticky button 
@@ -378,6 +358,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // 
+
+
+
+    // ──================== Tabs Filtering ==================──
+    const tabs = document.querySelectorAll(".tab");
+    const filterCards = document.querySelectorAll(".featured-card");
+
+    if (tabs.length && filterCards.length) {
+
+        function setActiveTab(activeTab) {
+            tabs.forEach(t => {
+                gsap.to(t, {
+                    backgroundColor: "#ffffff",
+                    color: "#000000",
+                    scale: 1,
+                    duration: 0.25
+                });
+            });
+
+            gsap.to(activeTab, {
+                backgroundColor: "#5E67E6",
+                color: "#ffffff",
+                scale: 1.05,
+                duration: 0.35
+            });
+        }
+
+        function filter(category) {
+            filterCards.forEach(card => {
+                const match = category === "all" || card.dataset.category === category;
+
+                if (match) {
+                    card.style.display = "block";
+
+                    gsap.fromTo(card,
+                        { autoAlpha: 0, y: 20, scale: 0.97 },
+                        { autoAlpha: 1, y: 0, scale: 1, duration: 0.4 }
+                    );
+                } else {
+                    gsap.to(card, {
+                        autoAlpha: 0,
+                        y: 20,
+                        scale: 0.95,
+                        duration: 0.25,
+                        onComplete: () => card.style.display = "none"
+                    });
+                }
+            });
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                setActiveTab(tab);
+                filter(tab.dataset.filter);
+            });
+        });
+
+        setActiveTab(tabs[0]);
+        filter("all");
+    }
 
 
 
@@ -465,4 +505,120 @@ ScrollTrigger.create({
     }
 });
 
+});
+
+
+
+
+//splide js slider for brand
+
+
+// ── LOGO SLIDERS ──
+const logoExtensions = window.splide?.Extensions || {};
+
+const logoSliderTop = document.getElementById('logo-slider-top');
+if (logoSliderTop && typeof Splide !== 'undefined') {
+    new Splide('#logo-slider-top', {
+        type: 'loop',
+        drag: 'free',
+        perPage: 5,
+        gap: '24px',
+        arrows: false,
+        pagination: false,
+        autoScroll: { speed: 1, pauseOnHover: true },
+        breakpoints: {
+            1024: { perPage: 4 },
+            768:  { perPage: 3 },
+            480:  { perPage: 2 },
+        }
+    }).mount(logoExtensions);
+}
+
+const logoSliderBottom = document.getElementById('logo-slider-bottom');
+if (logoSliderBottom && typeof Splide !== 'undefined') {
+    new Splide('#logo-slider-bottom', {
+        type: 'loop',
+        drag: 'free',
+        perPage: 5,
+        gap: '24px',
+        arrows: false,
+        pagination: false,
+        autoScroll: { speed: 1, pauseOnHover: true, rewind: false },
+        direction: 'rtl',
+        breakpoints: {
+            1024: { perPage: 4 },
+            768:  { perPage: 3 },
+            480:  { perPage: 2 },
+        }
+    }).mount(logoExtensions);
+}
+
+
+
+// ── SERVICE ROWS ──
+const serviceRows = document.querySelectorAll('.service-row');
+
+serviceRows.forEach(row => {
+    const mobileExpand = row.querySelector('.mobile-expand');
+    const arrowBtn = row.querySelector('.service-top .arrow-btn');
+
+    row.addEventListener('click', () => {
+        if (window.innerWidth >= 768) return;
+
+        const isActive = row.classList.contains('active');
+
+        // সব close করো
+        serviceRows.forEach(r => {
+            if (r !== row && r.classList.contains('active')) {
+                const mExp = r.querySelector('.mobile-expand');
+                const arr = r.querySelector('.service-top .arrow-btn');
+                r.classList.remove('active');
+                if (mExp) {
+                    gsap.to(mExp, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.4,
+                        ease: 'power3.inOut',
+                        onComplete: () => gsap.set(mExp, { display: 'none' })
+                    });
+                }
+                if (arr) gsap.to(arr, { rotation: 0, duration: 0.3, ease: 'power2.out' });
+            }
+        });
+
+        if (!isActive) {
+            row.classList.add('active');
+
+            if (mobileExpand) {
+                // আগে display block করো, তারপর animate
+                gsap.set(mobileExpand, { display: 'block', height: 0, opacity: 0 });
+                gsap.to(mobileExpand, {
+                    height: 'auto',
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power3.out',
+                });
+                gsap.fromTo(
+                    Array.from(mobileExpand.children),
+                    { y: 14, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out', stagger: 0.07, delay: 0.1 }
+                );
+            }
+            if (arrowBtn) gsap.to(arrowBtn, { rotation: 180, duration: 0.3, ease: 'power2.out' });
+
+        } else {
+            row.classList.remove('active');
+
+            if (mobileExpand) {
+                gsap.to(mobileExpand, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.35,
+                    ease: 'power3.inOut',
+                    onComplete: () => gsap.set(mobileExpand, { display: 'none' })
+                });
+            }
+            if (arrowBtn) gsap.to(arrowBtn, { rotation: 0, duration: 0.3, ease: 'power2.out' });
+        }
+    });
 });
